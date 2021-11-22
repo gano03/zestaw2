@@ -2,14 +2,13 @@
 #include <iostream>
 #include <cstdlib>
 #include <algorithm>
-
 using namespace std;
 template <typename T>
-void bubble (T* ptr, T n)
+void bubble (T* ptr, int left, int right)
 {
-    for(int i=0;i<n;i++)
+    for(int i=left;i<right;i++)
     {
-		for(int j=1;j<n-i;j++)
+		for(int j=left+1;j<right-i;j++)
         {
 		    if(ptr[j-1]>ptr[j])
             {
@@ -17,8 +16,6 @@ void bubble (T* ptr, T n)
             }
         }
     }
-    
-
 }
 
 
@@ -27,8 +24,7 @@ int main (int argc, char *argv[])
     int n = 0;
     int ptr[] = {5,2,13,8,6,19,1,4,0,10,8, 77};
     n = sizeof (ptr) / 4;
-    cout << n <<"\n";
-    bubble (ptr, n);
+    bubble (ptr,0, n);
     for (int i = 0; i < n; i++)
     {
         cout << " "<< ptr[i] << " ";
